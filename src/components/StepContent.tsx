@@ -32,12 +32,13 @@ export function StepContent({
         {/* header */}
         <div>
           <div className="mb-2 flex items-center gap-2">
-            <span className="chip text-accent">Step {step.id} / 10</span>
+            <span className="chip border-accent/40 text-accent">Step {step.id} / 10</span>
             <span className="chip">{step.shortTitle}</span>
           </div>
-          <h2 className="text-xl font-semibold text-white">{step.title}</h2>
-          <p className="mt-1 text-sm text-accent-glow/90">
-            <span className="font-semibold text-accent">Goal:</span> {step.goal}
+          <h2 className="text-2xl font-semibold leading-tight text-slate-100">{step.title}</h2>
+          <p className="mt-2 text-sm leading-relaxed text-slate-300">
+            <span className="mr-1.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-accent">Goal</span>
+            {step.goal}
           </p>
         </div>
 
@@ -75,8 +76,8 @@ export function StepContent({
         )}
 
         {/* why this matters */}
-        <div className="rounded-lg border-l-2 border-accent/60 bg-ink-800/50 px-4 py-3">
-          <div className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-accent">Why this matters</div>
+        <div className="rounded-r-lg border-l-2 border-accent bg-ink-800 px-4 py-3">
+          <div className="eyebrow mb-1 text-accent">Why this matters</div>
           <p className="text-sm leading-relaxed text-slate-300">{step.why}</p>
         </div>
       </motion.div>

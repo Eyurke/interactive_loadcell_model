@@ -8,8 +8,8 @@ export function Callout({ c }: { c: CalloutT }) {
       className={
         'rounded-lg border p-3 text-sm leading-relaxed ' +
         (warn
-          ? 'border-amber-500/40 bg-amber-500/10 text-amber-100'
-          : 'border-accent/40 bg-accent/10 text-cyan-100')
+          ? 'border-amber-500/40 bg-amber-500/10 text-amber-900'
+          : 'border-accent/40 bg-accent/10 text-slate-200')
       }
     >
       <div className="mb-1 flex items-center gap-2 font-semibold">

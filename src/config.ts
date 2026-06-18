@@ -215,21 +215,24 @@ export const EXPLODE = {
 // MATERIAL COLORS — central palette so the look is consistent & tweakable
 // ---------------------------------------------------------------------------
 export const COLORS = {
-  // --- 3D viewport background + ground grid (light "studio" look) ---
-  sceneBg: '#eef2f7', // near-white viewport background (dark components read clearly)
-  gridCell: '#d4dbe4', // fine grid lines on the light floor
-  gridSection: '#a7b2c0', // major grid lines
+  // --- 3D viewport background + ground grid (white "studio" look) ---
+  sceneBg: '#ffffff', // pure white viewport — matches the rest of the app
+  gridCell: '#dde3ea', // fine grid lines on the white floor
+  gridSection: '#aeb9c6', // major grid lines
 
+  // NOTE: the viewport background is pure white, so component grays are kept
+  // MEDIUM (not light) — light parts wash out on white. Directional shading +
+  // the contact shadow then give them form.
   extrusion: '#39404d', // dark gray aluminum extrusion
-  cell: '#b9c0ca', // silver S-beam body (a touch darker so it reads on white)
-  cellAccent: '#8b929d',
-  plate: '#5fa3d6', // light blue aluminum plate (rendered semi-transparent)
-  clevis: '#82888f',
-  sting: '#8e95a0',
-  bracket: '#9aa1ac',
-  fuselage: '#c6ccd6', // light aircraft gray, darkened for contrast on white
-  wing: '#b7bfca',
-  tail: '#b7bfca',
+  cell: '#8f96a1', // S-beam steel body — medium gray, reads on white
+  cellAccent: '#686e78',
+  plate: '#3f8ac4', // blue aluminum plate (rendered semi-transparent)
+  clevis: '#676d76',
+  sting: '#636974',
+  bracket: '#737a85',
+  fuselage: '#79808c', // aircraft body — medium gray for contrast on white
+  wing: '#6f7783',
+  tail: '#6f7783',
   canopy: '#2b3a4a',
   bridgeBox: '#1f2a3a', // USB bridge / PhidgetBridge box
   laptop: '#2a2f3a',

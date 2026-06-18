@@ -202,7 +202,7 @@ export function ShoppingList({ open, onClose }: { open: boolean; onClose: () => 
             {/* header + tabs */}
             <div className="flex items-start justify-between border-b border-ink-600 p-5 pb-0">
               <div>
-                <h2 className="text-lg font-semibold text-white">Parts &amp; build</h2>
+                <h2 className="text-lg font-semibold text-slate-100">Parts &amp; build</h2>
                 <p className="text-xs text-slate-500">
                   Exact models within a ~$1000 budget, plus how to wire the load cells.
                 </p>
@@ -220,7 +220,7 @@ export function ShoppingList({ open, onClose }: { open: boolean; onClose: () => 
                       className={
                         'rounded-t-md border-b-2 px-3 py-2 text-sm font-medium transition ' +
                         (tab === key
-                          ? 'border-accent text-white'
+                          ? 'border-accent text-slate-100'
                           : 'border-transparent text-slate-400 hover:text-slate-200')
                       }
                     >
@@ -263,7 +263,7 @@ export function ShoppingList({ open, onClose }: { open: boolean; onClose: () => 
                       <tfoot>
                         <tr className="border-t border-ink-500 bg-ink-700/50">
                           <td className="px-3 py-2" />
-                          <td className="px-3 py-2 font-semibold text-white">Core build total</td>
+                          <td className="px-3 py-2 font-semibold text-slate-100">Core build total</td>
                           <td className="px-3 py-2 text-right font-mono font-semibold text-accent-glow">~$530–700</td>
                         </tr>
                         <tr className="bg-ink-700/30">
@@ -285,7 +285,7 @@ export function ShoppingList({ open, onClose }: { open: boolean; onClose: () => 
                     {GOTCHAS.map((g, i) => (
                       <div
                         key={i}
-                        className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-sm text-amber-100"
+                        className="rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-sm text-amber-900"
                       >
                         <span className="font-semibold">⚠ {g.title}.</span>{' '}
                         <span className="text-slate-300/90">{g.body}</span>
@@ -316,7 +316,7 @@ export function ShoppingList({ open, onClose }: { open: boolean; onClose: () => 
                       </li>
                     ))}
                   </ol>
-                  <div className="mt-4 rounded-lg border border-accent/40 bg-accent/10 p-3 text-sm text-cyan-100">
+                  <div className="mt-4 rounded-lg border border-accent/40 bg-accent/10 p-3 text-sm text-slate-200">
                     <span className="font-semibold">Why bench-first?</span>{' '}
                     <span className="text-slate-300/90">
                       Finding a miswired bridge, dead cell, or noisy channel now is free. Finding it after everything is

@@ -44,7 +44,7 @@ export function LiveReadout({ airspeed, pitchDeg }: { airspeed: number; pitchDeg
   return (
     <div className="rounded-xl border border-accent/30 bg-gradient-to-br from-ink-800 to-ink-900 p-4 shadow-glow">
       <div className="mb-3 flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-white">Live readout</h3>
+        <h3 className="text-sm font-semibold text-slate-100">Live readout</h3>
         <span className="chip">simulated · V {a.V.toFixed(0)} m/s · α {a.alpha.toFixed(1)}°</span>
       </div>
 

@@ -46,7 +46,9 @@ function CellBundle({
 }
 
 export function BenchSetup() {
-  const bench = partMaterial('#101622', { faded: false }, { metalness: 0.1, roughness: 0.9 })
+  // a deliberate dark ESD bench mat — gives the colored wiring contrast and
+  // reads as a chosen work surface against the white background.
+  const bench = partMaterial('#222b3d', { faded: false }, { metalness: 0.1, roughness: 0.9 })
   const cellMat = partMaterial(COLORS.cell, { highlight: false }, { metalness: 0.7, roughness: 0.35 })
   const boxMat = partMaterial(COLORS.bridgeBox, { highlight: false }, { metalness: 0.4, roughness: 0.5 })
   const lapMat = partMaterial(COLORS.laptop, { highlight: false }, { metalness: 0.5, roughness: 0.4 })

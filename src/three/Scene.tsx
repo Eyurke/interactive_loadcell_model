@@ -184,7 +184,7 @@ export function Scene({ preset, controls }: { preset: ScenePreset; controls: Con
         infiniteGrid
         followCamera={false}
       />
-      <ContactShadows position={[0, 0.002, 0]} opacity={0.35} scale={4} blur={2.2} far={2} resolution={1024} color="#1e293b" />
+      <ContactShadows position={[0, 0.002, 0]} opacity={0.5} scale={4} blur={2.4} far={2} resolution={1024} color="#1e293b" />
 
       {/* ---- camera + controls ---- */}
       <OrbitControls
