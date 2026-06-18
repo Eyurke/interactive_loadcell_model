@@ -1,0 +1,70 @@
+/* Fonts (graceful fallback to system stack if offline) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-ink-900 text-slate-200 font-sans antialiased;
+    margin: 0;
+    overscroll-behavior: none;
+  }
+  /* number-heavy UI reads better with tabular figures */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  /* Range sliders — themed to the cyan accent */
+  input[type='range'] {
+    @apply h-1.5 w-full cursor-pointer appearance-none rounded-full bg-ink-500;
+    accent-color: #22d3ee;
+  }
+  input[type='range']::-webkit-slider-thumb {
+    @apply h-4 w-4 appearance-none rounded-full bg-accent;
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.18);
+  }
+  input[type='range']::-moz-range-thumb {
+    @apply h-4 w-4 rounded-full border-0 bg-accent;
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.18);
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-ink-500 bg-ink-700
+      px-3 py-1.5 text-sm font-medium text-slate-200 transition
+      hover:border-accent/60 hover:text-white disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-accent {
+    @apply border-accent/50 bg-accent/10 text-accent hover:bg-accent/20 hover:text-accent-glow;
+  }
+  .chip {
+    @apply rounded-full border border-ink-500 bg-ink-800 px-2 py-0.5 text-[11px] font-medium text-slate-400;
+  }
+}
+
+/* Custom scrollbars (WebKit) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+  background-clip: content-box;
+}
