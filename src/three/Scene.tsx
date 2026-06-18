@@ -157,8 +157,8 @@ export function Scene({ preset, controls }: { preset: ScenePreset; controls: Con
   return (
     <LabelsContext.Provider value={showLabels}>
       {/* ---- lighting (soft) ---- */}
-      <hemisphereLight intensity={0.55} color="#bcd3ff" groundColor="#0b0f17" />
-      <ambientLight intensity={0.22} />
+      <hemisphereLight intensity={0.5} color="#ffffff" groundColor="#d8e0ea" />
+      <ambientLight intensity={0.38} />
       <directionalLight
         position={[3, 5, 2]}
         intensity={1.1}
@@ -175,16 +175,16 @@ export function Scene({ preset, controls }: { preset: ScenePreset; controls: Con
         args={[12, 12]}
         cellSize={0.1}
         cellThickness={0.6}
-        cellColor="#1e293b"
+        cellColor={COLORS.gridCell}
         sectionSize={0.5}
         sectionThickness={1}
-        sectionColor="#334155"
+        sectionColor={COLORS.gridSection}
         fadeDistance={9}
         fadeStrength={1.5}
         infiniteGrid
         followCamera={false}
       />
-      <ContactShadows position={[0, 0.002, 0]} opacity={0.5} scale={4} blur={2.2} far={2} resolution={1024} color="#000000" />
+      <ContactShadows position={[0, 0.002, 0]} opacity={0.35} scale={4} blur={2.2} far={2} resolution={1024} color="#1e293b" />
 
       {/* ---- camera + controls ---- */}
       <OrbitControls

@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Scene } from '../three/Scene'
 import { FRAMINGS } from '../three/CameraRig'
+import { COLORS } from '../config'
 import type { ScenePreset, Controls } from '../types'
 
 /**
@@ -36,8 +37,8 @@ export function Viewport({
         gl={{ antialias: true, powerPreference: 'high-performance' }}
         camera={{ position: FRAMINGS.overview.pos, fov: 45, near: 0.03, far: 100 }}
       >
-        <color attach="background" args={['#0b0f17']} />
-        <fog attach="fog" args={['#0b0f17', 6, 14]} />
+        <color attach="background" args={[COLORS.sceneBg]} />
+        <fog attach="fog" args={[COLORS.sceneBg, 7, 16]} />
         <Suspense fallback={null}>
           <Scene preset={preset} controls={controls} />
         </Suspense>
