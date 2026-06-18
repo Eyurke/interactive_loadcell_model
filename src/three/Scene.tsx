@@ -20,6 +20,7 @@ import { CalibrationRig } from './parts/CalibrationRig'
 import { Streamlines } from './parts/Streamlines'
 import { Wire } from './parts/Wire'
 import { CameraRig } from './CameraRig'
+import { LabelsContext } from './LabelsContext'
 
 // ---------------------------------------------------------------------------
 // Per-preset behavior table. `active` lists parts shown at full opacity; any
@@ -134,7 +135,7 @@ function SlackWires() {
 
 export function Scene({ preset, controls }: { preset: ScenePreset; controls: Controls }) {
   const cfg = presetConfig(preset)
-  const { explodedAmount, pitchDeg, airspeed, calMass, resetCameraNonce } = controls
+  const { explodedAmount, pitchDeg, airspeed, calMass, resetCameraNonce, showLabels } = controls
 
   const faded = (p: PartName) => cfg.showRig && !cfg.activeAll && !cfg.active.has(p)
   const hl = (p: PartName) => cfg.highlight.has(p)
@@ -154,7 +155,7 @@ export function Scene({ preset, controls }: { preset: ScenePreset; controls: Con
   })
 
   return (
-    <>
+    <LabelsContext.Provider value={showLabels}>
       {/* ---- lighting (soft) ---- */}
       <hemisphereLight intensity={0.55} color="#bcd3ff" groundColor="#0b0f17" />
       <ambientLight intensity={0.22} />
@@ -276,6 +277,6 @@ export function Scene({ preset, controls }: { preset: ScenePreset; controls: Con
           {cfg.showStreamlines && <Streamlines airspeed={airspeed} />}
         </group>
       )}
-    </>
+    </LabelsContext.Provider>
   )
 }

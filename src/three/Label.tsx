@@ -1,5 +1,7 @@
+import { useContext } from 'react'
 import { Html } from '@react-three/drei'
 import { COLORS } from '../config'
+import { LabelsContext } from './LabelsContext'
 
 /**
  * A billboard text label that always faces the camera (drei <Html>).
@@ -14,6 +16,9 @@ export function Label({
   text: string
   tone?: 'default' | 'accent' | 'drag' | 'weight'
 }) {
+  // Hidden when the viewport "labels" toggle is off.
+  if (!useContext(LabelsContext)) return null
+
   const color =
     tone === 'accent'
       ? COLORS.accent

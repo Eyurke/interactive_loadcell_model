@@ -25,6 +25,7 @@ export default function App() {
   const [airspeed, setAirspeed] = useState(18)
   const [calMass, setCalMass] = useState(2)
   const [resetCameraNonce, setResetNonce] = useState(0)
+  const [showLabels, setShowLabels] = useState(true)
 
   // exploded view: tween a 0..1 amount toward the toggle target for a smooth fan-out
   const [explodedTarget, setExplodedTarget] = useState(0)
@@ -48,8 +49,8 @@ export default function App() {
   }, [explodedTarget])
 
   const controls: Controls = useMemo(
-    () => ({ explodedAmount, pitchDeg, airspeed, calMass, resetCameraNonce }),
-    [explodedAmount, pitchDeg, airspeed, calMass, resetCameraNonce],
+    () => ({ explodedAmount, pitchDeg, airspeed, calMass, resetCameraNonce, showLabels }),
+    [explodedAmount, pitchDeg, airspeed, calMass, resetCameraNonce, showLabels],
   )
   const update = useCallback((patch: Partial<Controls>) => {
     if (patch.pitchDeg !== undefined) setPitchDeg(patch.pitchDeg)
@@ -160,7 +161,11 @@ export default function App() {
 
           {/* 3D viewport */}
           <section className="relative h-[42vh] min-h-[260px] w-full md:h-auto md:flex-1">
-            <Viewport preset={step.scene} controls={controls} />
+            <Viewport
+              preset={step.scene}
+              controls={controls}
+              onToggleLabels={() => setShowLabels((s) => !s)}
+            />
           </section>
         </main>
       </div>

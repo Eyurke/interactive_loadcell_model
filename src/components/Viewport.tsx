@@ -8,9 +8,28 @@ import type { ScenePreset, Controls } from '../types'
  * 3D viewport: the R3F <Canvas> hosting the shared scene, plus a small
  * "drag to orbit / scroll to zoom" hint overlay.
  */
-export function Viewport({ preset, controls }: { preset: ScenePreset; controls: Controls }) {
+export function Viewport({
+  preset,
+  controls,
+  onToggleLabels,
+}: {
+  preset: ScenePreset
+  controls: Controls
+  onToggleLabels: () => void
+}) {
   return (
     <div className="relative h-full w-full">
+      {/* labels toggle — declutters the 3D view */}
+      <button
+        onClick={onToggleLabels}
+        aria-pressed={!controls.showLabels}
+        title={controls.showLabels ? 'Hide the in-scene text labels' : 'Show the in-scene text labels'}
+        className="absolute right-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-md border border-ink-600 bg-ink-900/80 px-2.5 py-1.5 text-xs font-medium text-slate-300 backdrop-blur transition hover:border-accent/60 hover:text-white"
+      >
+        <span aria-hidden>{controls.showLabels ? '🙈' : '👁'}</span>
+        {controls.showLabels ? 'Hide labels' : 'Show labels'}
+      </button>
+
       <Canvas
         shadows
         dpr={[1, 2]}

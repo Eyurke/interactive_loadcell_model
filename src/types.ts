@@ -34,6 +34,7 @@ export interface Controls {
   airspeed: number // m/s (step 10)
   calMass: number // kg known mass (step 9)
   resetCameraNonce: number // bump to re-trigger a camera fly-to
+  showLabels: boolean // in-scene billboard text labels visible
 }
 
 /** A single callout (warning / tip / why-this-matters) shown beside a step. */
