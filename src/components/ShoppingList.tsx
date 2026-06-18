@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { IMAGE_CREDITS } from '../photos'
 
 /* ===========================================================================
    PARTS & BUILD reference modal.
@@ -168,7 +169,7 @@ const BUILD_STEPS: { title: string; body: string }[] = [
   },
 ]
 
-type Tab = 'bom' | 'build'
+type Tab = 'bom' | 'build' | 'credits'
 
 export function ShoppingList({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [tab, setTab] = useState<Tab>('bom')
@@ -210,6 +211,7 @@ export function ShoppingList({ open, onClose }: { open: boolean; onClose: () => 
                     [
                       ['bom', 'Bill of materials'],
                       ['build', 'Build the load cells'],
+                      ['credits', 'Image credits'],
                     ] as [Tab, string][]
                   ).map(([key, label]) => (
                     <button
@@ -234,7 +236,7 @@ export function ShoppingList({ open, onClose }: { open: boolean; onClose: () => 
 
             {/* body */}
             <div className="overflow-y-auto p-5">
-              {tab === 'bom' ? (
+              {tab === 'bom' && (
                 <>
                   <div className="overflow-hidden rounded-lg border border-ink-600">
                     <table className="w-full text-sm">
@@ -291,7 +293,9 @@ export function ShoppingList({ open, onClose }: { open: boolean; onClose: () => 
                     ))}
                   </div>
                 </>
-              ) : (
+              )}
+
+              {tab === 'build' && (
                 <>
                   <p className="mb-4 text-sm leading-relaxed text-slate-400">
                     You don’t fabricate the strain gauge — you buy the S-beam cells and build the{' '}
@@ -319,6 +323,40 @@ export function ShoppingList({ open, onClose }: { open: boolean; onClose: () => 
                       bolted together is not.
                     </span>
                   </div>
+                </>
+              )}
+
+              {tab === 'credits' && (
+                <>
+                  <p className="mb-4 text-sm leading-relaxed text-slate-400">
+                    Component &amp; tool photos are real, openly-licensed images from Wikimedia Commons. Attribution and
+                    license for each, as required:
+                  </p>
+                  <ul className="divide-y divide-ink-600 overflow-hidden rounded-lg border border-ink-600">
+                    {IMAGE_CREDITS.map((c) => (
+                      <li key={c.key} className="flex items-center gap-3 p-2">
+                        <img src={c.src} alt={c.alt} loading="lazy" className="h-10 w-12 shrink-0 rounded object-cover" />
+                        <div className="min-w-0 text-sm">
+                          <div className="truncate text-slate-300">{c.alt}</div>
+                          <div className="text-[11px] text-slate-500">
+                            {c.author} ·{' '}
+                            <a
+                              href={c.source}
+                              target="_blank"
+                              rel="noreferrer noopener"
+                              className="text-accent hover:text-accent-glow"
+                            >
+                              {c.license} ↗
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-3 text-[11px] leading-relaxed text-slate-500">
+                    Branded parts (DYMH-103, PhidgetBridge 1046_0B, Matek ASPD-4525) link to their vendor pages for the
+                    exact product photos. The 3D scene is built from primitives (no external models).
+                  </p>
                 </>
               )}
             </div>

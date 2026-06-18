@@ -239,7 +239,22 @@ cell to a PhidgetBridge channel (Ex pair → 5V/G, Sig pair → +/−) → confi
 (Phidget Control Panel, gain ×128) → zero & check direction → shield &
 strain-relieve → add the airspeed channel → calibrate.
 
+**Tab 3 — Image credits** lists every reference photo with its author, license,
+and source link.
+
 > Prices are typical street prices (USD, mid-2020s) — verify at purchase.
+
+### Real photos (LEGO-style)
+
+Every step has a **"You'll need"** panel that calls out the parts and tools with
+**real photos** (and a "view real photo ↗" link to the exact branded part's
+vendor page). The component/tool photos live in [`public/photos/`](./public/photos)
+and are openly-licensed images from **Wikimedia Commons** (CC0 / CC-BY / CC-BY-SA),
+registered with attribution in [`src/photos.ts`](./src/photos.ts) and surfaced in
+the modal's *Image credits* tab. To use your own build photos instead, just
+replace the files in `public/photos/` (keep the same names) — no code changes
+needed. The assembly itself is the photoreal-ish **3D render**, like a LEGO
+instruction panel, driven by the step.
 
 ---
 

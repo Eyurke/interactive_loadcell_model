@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import type { PhotoKey } from './photos'
 
 /** Named scene "presets" — one per build step. The 3D <Scene> switches on this. */
 export type ScenePreset =
@@ -42,6 +43,15 @@ export interface Callout {
   body: ReactNode
 }
 
+/** A part or tool needed for a step (LEGO-style "you'll need" callout). */
+export interface NeedItem {
+  qty?: string // e.g. "2×" (omit for tools)
+  name: string
+  photo?: PhotoKey // licensed reference photo
+  vendor?: string // link to the exact branded part's product page
+  note?: string // small clarifier (spec, size…)
+}
+
 /** Full definition of one build step. */
 export interface Step {
   id: number
@@ -49,7 +59,10 @@ export interface Step {
   title: string // main heading
   goal: string // one-line goal
   scene: ScenePreset
-  instructions: ReactNode[] // numbered sub-instructions
+  heroPhoto?: PhotoKey // large reference photo for the step
+  needParts?: NeedItem[] // parts consumed this step
+  needTools?: NeedItem[] // tools used this step
+  instructions: ReactNode[] // numbered sub-instructions (granular, LEGO-style)
   callouts: Callout[]
   why: ReactNode // "why this matters"
 }

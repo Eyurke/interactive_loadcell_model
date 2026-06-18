@@ -3,6 +3,7 @@ import type { Controls, Step } from '../types'
 import { Callout } from './Callout'
 import { StepControls } from './StepControls'
 import { LiveReadout } from './LiveReadout'
+import { HeroPhoto, NeedPanel } from './Photos'
 
 /**
  * The text/instruction side of a step. Animates in/out with Framer Motion when
@@ -39,6 +40,12 @@ export function StepContent({
             <span className="font-semibold text-accent">Goal:</span> {step.goal}
           </p>
         </div>
+
+        {/* large reference photo for this step (real, licensed) */}
+        {step.heroPhoto && <HeroPhoto photo={step.heroPhoto} />}
+
+        {/* LEGO-style "you'll need" parts + tools, each with a real photo */}
+        <NeedPanel parts={step.needParts} tools={step.needTools} />
 
         {/* per-step interactive controls */}
         <StepControls preset={step.scene} controls={controls} update={update} />

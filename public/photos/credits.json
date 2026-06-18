@@ -1,0 +1,72 @@
+{
+  "load-cell": {
+    "file": "load-cell.jpg",
+    "title": "File:Miniature S-beam load cell.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "FUTEK Advanced Sensor Technology, Inc.",
+    "source": "https://commons.wikimedia.org/wiki/File:Miniature_S-beam_load_cell.jpg"
+  },
+  "rod-end": {
+    "file": "rod-end.jpg",
+    "title": "File:2000s rod end bearing M80 or MB0 111 gr.jpg",
+    "license": "CC BY 4.0",
+    "author": "R. Henrik Nilsson",
+    "source": "https://commons.wikimedia.org/wiki/File:2000s_rod_end_bearing_M80_or_MB0_111_gr.jpg"
+  },
+  "hex-keys": {
+    "file": "hex-keys.jpg",
+    "title": "File:2023 Bity Imbus.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Jacek Halicki",
+    "source": "https://commons.wikimedia.org/wiki/File:2023_Bity_Imbus.jpg"
+  },
+  "arduino": {
+    "file": "arduino.jpg",
+    "title": "File:Iskra Nano Pro (Arduino Nano clone) top.jpg",
+    "license": "CC0",
+    "author": "Retired electrician",
+    "source": "https://commons.wikimedia.org/wiki/File:Iskra_Nano_Pro_(Arduino_Nano_clone)_top.jpg"
+  },
+  "pitot": {
+    "file": "pitot.jpg",
+    "title": "File:ILA-Pitotrohr.jpg",
+    "license": "CC BY-SA 3.0",
+    "author": "User:Kolossos",
+    "source": "https://commons.wikimedia.org/wiki/File:ILA-Pitotrohr.jpg"
+  },
+  "weights": {
+    "file": "weights.jpg",
+    "title": "File:Gewichtssatz einer Feinwaage.jpg",
+    "license": "CC0",
+    "author": "HelgeRieder",
+    "source": "https://commons.wikimedia.org/wiki/File:Gewichtssatz_einer_Feinwaage.jpg"
+  },
+  "caliper": {
+    "file": "caliper.jpg",
+    "title": "File:Messschieber.jpg",
+    "license": "CC BY-SA 3.0",
+    "author": "ArtMechanic",
+    "source": "https://commons.wikimedia.org/wiki/File:Messschieber.jpg"
+  },
+  "multimeter": {
+    "file": "multimeter.jpg",
+    "title": "File:2017 Cyfrowy miernik uniwersalny.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Jacek Halicki",
+    "source": "https://commons.wikimedia.org/wiki/File:2017_Cyfrowy_miernik_uniwersalny.jpg"
+  },
+  "screws": {
+    "file": "screws.jpg",
+    "title": "File:INBUS RIPP Serrated hex soc head cap screws with flange by Bauer and Schaurte Karcher GmbH Neuss Germany.jpg",
+    "license": "CC BY 4.0",
+    "author": "R. Henrik Nilsson",
+    "source": "https://commons.wikimedia.org/wiki/File:INBUS_RIPP_Serrated_hex_soc_head_cap_screws_with_flange_by_Bauer_and_Schaurte_Karcher_GmbH_Neuss_Germany.jpg"
+  },
+  "extrusion": {
+    "file": "extrusion.jpg",
+    "title": "File:Aluprofil 2.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Aluprofil szerel\u0151",
+    "source": "https://commons.wikimedia.org/wiki/File:Aluprofil_2.jpg"
+  }
+}
