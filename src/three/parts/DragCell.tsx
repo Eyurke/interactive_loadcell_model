@@ -20,6 +20,15 @@ export function DragCell({
   const pos = explodePos(POS.dragCell, EXPLODE.dragCell, explodedAmount)
   const body = partMaterial(COLORS.cell, { highlight, faded }, { metalness: 0.7, roughness: 0.35 })
   const boss = partMaterial(COLORS.cellAccent, { highlight, faded }, { metalness: 0.7, roughness: 0.4 })
+  const link = partMaterial(COLORS.bracket, { highlight, faded }, { metalness: 0.6, roughness: 0.4 })
+
+  // Drop link: a lug hanging from the plate underside that the moving (downstream)
+  // rod end pins to. Without it the drag cell looks like it floats under the plate.
+  const plateBottomLocal = SCENE.plate.y - SCENE.plate.size[1] / 2 - SCENE.dragCell.y
+  const lugTop = plateBottomLocal + 0.006 // overlap a hair into the plate
+  const lugBottom = -0.006 // grip the cell axis / rod end
+  const lugH = lugTop - lugBottom
+  const lugX = lx / 2 + 0.018
 
   return (
     <group position={pos}>
@@ -35,6 +44,12 @@ export function DragCell({
           <meshStandardMaterial {...boss} />
         </mesh>
       ))}
+
+      {/* drop link from the plate underside down to the moving rod end */}
+      <mesh position={[lugX, lugBottom + lugH / 2, 0]} castShadow>
+        <boxGeometry args={[0.014, lugH, 0.02]} />
+        <meshStandardMaterial {...link} />
+      </mesh>
 
       <Label position={[0, ly / 2 + 0.05, 0]} text="Drag · DYMH-103 5 kg" tone={highlight ? 'accent' : 'default'} />
 

@@ -116,10 +116,14 @@ export const SCENE = {
   },
 
   // --- Horizontal drag S-beam cell (smaller) ---
+  // Sits just UNDER the plate: its fixed end reaches the upstream frame post
+  // (via the upstream rod end) and its moving end links UP to the plate
+  // underside (see the drop bracket in DragCell). y is chosen so the cell tucks
+  // a touch below the plate so the link bracket is short and reads as solid.
   dragCell: {
     size: [0.09, 0.028, 0.028] as [number, number, number], // long axis along X
-    x: -0.185, // upstream side, between frame post and plate edge
-    y: 0.12,
+    x: -0.12, // moving end under the plate, fixed end toward the upstream post
+    y: 0.143, // just beneath the plate (plate underside ≈ 0.169)
     z: 0,
   },
 

@@ -27,13 +27,30 @@ export function OverloadStops({
   ]
   const mat = partMaterial(COLORS.extrusion, { highlight, faded }, { metalness: 0.4, roughness: 0.6 })
 
+  // Each stop is bolted to the FIXED frame, so it needs a post running down from
+  // the catch block (at plate height) to the frame top rail — without it the
+  // blocks look like they float beside the plate corners.
+  const railTop = SCENE.frame.railThickness // top of the base-frame rails
+  const blockBottom = SCENE.plate.y - sh / 2
+  const postH = blockBottom - railTop
+  const postY = railTop + postH / 2
+  const postW = Math.min(sw, sd) * 0.5
+
   return (
     <group position={explodePos([0, 0, 0], EXPLODE.stops, explodedAmount)}>
       {corners.map((c, i) => (
-        <mesh key={i} position={c} castShadow>
-          <boxGeometry args={[sw, sh, sd]} />
-          <meshStandardMaterial {...mat} />
-        </mesh>
+        <group key={i}>
+          {/* catch block, just clear of the plate corner */}
+          <mesh position={c} castShadow>
+            <boxGeometry args={[sw, sh, sd]} />
+            <meshStandardMaterial {...mat} />
+          </mesh>
+          {/* support post down to the frame rail */}
+          <mesh position={[c[0], postY, c[2]]} castShadow>
+            <boxGeometry args={[postW, postH, postW]} />
+            <meshStandardMaterial {...mat} />
+          </mesh>
+        </group>
       ))}
       {showLabel && <Label position={[hx + 0.04, SCENE.plate.y + 0.04, hz]} text="Overload stops (~4 mm gap)" tone="accent" />}
     </group>

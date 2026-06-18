@@ -30,11 +30,16 @@ export function LiftCell({
 }) {
   const [w, h, d] = SCENE.liftCell.size
   const pos = explodePos(base, explodeOffset, explodedAmount)
+  // `base.y` is the cell's BOTTOM (it rests on the frame's top rail). The meshes
+  // below are drawn centered on the group origin, so lift the group by half the
+  // cell height to SEAT it on the rail — otherwise the box straddles the rail and
+  // everything above (clevis → plate → sting → aircraft) appears to float.
+  const seatY = pos[1] + h / 2
   const body = partMaterial(COLORS.cell, { highlight, faded }, { metalness: 0.7, roughness: 0.35 })
   const boss = partMaterial(COLORS.cellAccent, { highlight, faded }, { metalness: 0.7, roughness: 0.4 })
 
   return (
-    <group position={pos}>
+    <group position={[pos[0], seatY, pos[2]]}>
       {/* main body */}
       <mesh castShadow>
         <boxGeometry args={[w, h, d]} />
